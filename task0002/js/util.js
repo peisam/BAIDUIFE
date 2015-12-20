@@ -117,6 +117,146 @@ function isMobilePhone(phone) {
     return reg.test(phone);
 }
 
+//为element增加一个样式名为newClassName的新样式
+function addClass(element,newClassName){
+	var oldclass = element.getAttribute("class");
+	finalClassName = oldclass +" "+newClassName;
+	element.setAttribute("class",finalClassName);
+}
+
+// 移除element中的样式oldClassName
+function removeClass(element, oldClassName) {
+    if (element.className == "") {
+        return false;
+    }else {
+        var allOldName = element.className;
+        var newClassName = allOldName.replace(eval('/' + oldClassName + '/'), "").replace(/^\s+|\s+$/,"");
+        element.className = newClassName;
+    }
+}
+
+// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值
+function isSiblingNode(element, siblingNode) {
+    if(element.parentNode==siblingNode.parentNode)
+    	return true;
+    else
+    	return false;
+}
+
+
+
+
+
+/*
+6.1 任务描述
+
+学习Ajax，并尝试自己封装一个Ajax方法。实现如下方法：
+
+// 
+function ajax(url, options) {
+    // your implement
+}
+
+// 使用示例：
+ajax(
+    'http://localhost:8080/server/ajaxtest', 
+    {
+        data: {
+            name: 'simon',
+            password: '123456'
+        },
+        onsuccess: function (responseText, xhr) {
+            console.log(responseText);
+        }
+    }
+);
+options是一个对象，里面可以包括的参数为：
+
+type: post或者get，可以有一个默认值
+data: 发送的数据，为一个键值对象或者为一个用&连接的赋值字符串
+onsuccess: 成功时的调用函数
+onfail: 失败时的调用函数
+*/
+//createAjax
+var createAjax = function() {
+    var xhr = null;
+    try {
+        //IE系列浏览器
+        xhr = new ActiveXObject("microsoft.xmlhttp");
+    } catch (e1) {
+        try {
+            //非IE浏览器
+            xhr = new XMLHttpRequest();
+        } catch (e2) {
+            conosle.log("您的浏览器不支持ajax，请更换！");
+        }
+    }
+    return xhr;
+};
+// ajax
+var ajax = function(url,options) {
+    // 初始化
+    //type参数,可选
+    var type = options.type;
+    if (type == null){
+        type = "get";
+    }
+    //data参数可选
+    var data = options.data;
+    //url参数，必填
+    var url = url;
+    if (type == "get") {
+        url = url + "?" + data;
+    }
+    //datatype参数可选
+    var dataType = options.dataType;
+    //回调函数
+    var success = options.onsuccess;
+    if (dataType == null){
+        //dataType参数可选，默认为text
+        dataType = "text";
+    }
+    // 创建ajax引擎对象
+    var xhr = createAjax();
+    // 打开
+    xhr.open(type, url, true);
+    // 发送
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            if(dataType == "text"||dataType=="TEXT") {
+                if (success){
+                    //普通文本
+                    success(xhr.responseText, xhr);
+                }
+            }else if(dataType == "xml"||dataType == "XML") {
+                if (success != null){
+                    //接收xml文档
+                    success(xhr.responseXML, xhr);
+                }
+            }else if(dataType == "json"||dataType == "JSON") {
+                if (success != null){
+                    //将json字符串转换为js对象
+                    success(eval("(" + xhr.responseText + ")"), xhr);
+                }
+            }
+        }
+    };
+    if (type == "GET" || type == "get") {
+        xhr.send();
+    } else if (type == "POST" || type == "post") {
+        xhr.setRequestHeader("content-type",
+                    "application/x-www-form-urlencoded");
+        xhr.send(data);
+
+    }
+};
+
+
+
+
+
+
+
 
 
 
