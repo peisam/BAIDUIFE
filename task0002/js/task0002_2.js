@@ -7,9 +7,14 @@ function countdown(){
 	var today = new Date();
 	var timeStr = timeInput.value;
 	//timeStr = "2015-12-28";
-	var yearStr = timeStr[0]+timeStr[1]+timeStr[2]+timeStr[3];
-	var monthStr = timeStr[5]+timeStr[6];
-	var dayStr = timeStr[8]+timeStr[9];
+	var reg = /^(\d{4})-(\d{2})-(\d{2})$/;
+    var isdata = reg.exec(timeStr);
+    var yearStr = isdata[1];
+    var monthStr = isdata[2];
+    var dayStr = isdata[3];
+	//var yearStr = timeStr[0]+timeStr[1]+timeStr[2]+timeStr[3];
+	//var monthStr = timeStr[5]+timeStr[6];
+	//var dayStr = timeStr[8]+timeStr[9];
 	//输入值距离1970.01.01的毫秒数
 	var inputcount = Date.parse(timeStr);
 	//console.log(inputcount);

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>task0002_3</title>
+		<link rel="stylesheet" href="css/ECharts.css"> 
+	</head>
+	<body>
+		<header class="clearfix"></header>
+		<div class="carousel">
+			<div class="item show"><img></div>
+			<div class="item"><img></div>
+			<div class="item"><img></div>
+			<div class="item"><img></div>
+			<div class="item"><img></div>
+			<div class="item"><img></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var wrap = document.getElementsByClassName("carousel");
+		var item = wrap[0].getElementsByTagName("div");
+		var img = wrap[0].getElementsByTagName("img");
+		var name = "http://echarts.baidu.com"
+		img[0].src=name+"/doc/asset/img/slide-01.png";
+		img[1].src=name+"/doc/asset/img/slide-02.png";
+		img[2].src=name+"/doc/asset/img/slide-03.png";
+		img[3].src=name+"/doc/asset/img/slide-04.png";
+		img[4].src=name+"/doc/asset/img/slide-05.jpg";
+		img[5].src=name+"/doc/asset/img/bannerX.jpg";
+		function slide(num,timing){
+			setTimeout('item['+num+'].className="item show"',timing+0);
+			setTimeout('item['+num+'].className="item leave"',timing+1000);
+			setTimeout('item['+num+'].className="hide"',timing+2000);
+			setTimeout('item['+num+'].className="item"',timing+3000);
+		}//在setTimingout里传包含timing的函数会出错
+		function column(){
+			slide(0,0);
+			slide(1,1000);
+			slide(2,2000);
+			slide(3,3000);
+			slide(4,4000);
+			slide(5,5000);
+			setTimeout('column()',6000)
+		}
+		window.onload=column();
+	</script>
+</html>
