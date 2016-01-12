@@ -11,7 +11,7 @@ dragger.prototype.dragUp = function drapUp(ev){
 	target.setAttribute("class","drag filter");
 	document.onmousemove=function(e){
 		var e = e||window.event;
-		var l = e.clientX - disX;
+		var l = e.clientX - disX;//刚mousedown时l=offsetLeft 随着平移l也变化
 		var t = e.clientY - disY;
 		if(l>-40 && l<46)
 			l=3;
