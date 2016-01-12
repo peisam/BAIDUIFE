@@ -1,0 +1,32 @@
+body{margin:0;padding: 0;background-color: rgb(51,122,183)}
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;} /* IE < 8 */
+.relative{position: relative;}
+.main{
+	width:640px;
+	background-color: rgb(51,122,183);
+	margin:auto;
+}
+.left{float:left;}
+.right{float:right;}
+.wrap{
+	margin-top: 20px;
+	min-height:50px;
+	width:300px;
+	border:solid 3px white;
+	border-radius: 10px;
+}
+.drag{
+	width:280px;
+	height:50px;
+	margin:10px;
+	background-color: white;
+}
+.filter{background-color: rgba(255,255,255,0.5)}
