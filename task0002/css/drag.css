@@ -18,14 +18,14 @@ body{margin:0;padding: 0;background-color: rgb(51,122,183)}
 .right{float:right;}
 .wrap{
 	margin-top: 20px;
-	min-height:50px;
+	min-height:80px;
 	width:300px;
 	border:solid 3px white;
 	border-radius: 10px;
 }
 .drag{
 	width:280px;
-	height:50px;
+	height:83px;
 	margin:10px;
 	background-color: white;
 }

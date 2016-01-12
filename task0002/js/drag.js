@@ -13,10 +13,10 @@ dragger.prototype.dragUp = function drapUp(ev){
 		var e = e||window.event;
 		var l = e.clientX - disX;
 		var t = e.clientY - disY;
-		if(l>10 && l<15)
-			console.log(0);
-		else if(l>330 && l< 340)
-			console.log(0);
+		if(l>-40 && l<46)
+			l=3;
+		else if(l>294 && l< 380)
+			l=337;
 		target.style.left = l + "px";
 		target.style.top = t + "px";
 	}
