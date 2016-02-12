@@ -34,7 +34,7 @@ dragger.prototype.dragUp = function drapUp(ev){
 var d=new dragger;
 //事件代理
 function init(){
-	delegateEvent(left,"div","mousedown",d.dragUp);
-	delegateEvent(right,"div","mousedown",d.dragUp);
+	delegateEvent(left,"span","mousedown",d.dragUp);
+	delegateEvent(right,"span","mousedown",d.dragUp);
 }
 init();

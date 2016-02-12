@@ -24,6 +24,7 @@ body{margin:0;padding: 0;background-color: rgb(51,122,183)}
 	border-radius: 10px;
 }
 .drag{
+	display: block;
 	width:280px;
 	height:83px;
 	margin:10px;
