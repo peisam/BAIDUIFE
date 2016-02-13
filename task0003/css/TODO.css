@@ -70,21 +70,34 @@ textarea:focus,textarea:hover{outline: none}
 	margin-left: 40px;
 	color: gray;
 	border-left: solid 2px gray;
-	padding: 0 10px; 
+	padding: 0 10px;
+	transition:border-left 0.5s;
+	-webkit-transition:border-left 0.5s; 
+}
+.save:hover{
+	border-left: solid 10px rgba(0,0,0,0);
 }
 
-.add{
+.add,.addChild{
 	text-indent: 20px;
 	font-size: 18px;
-	position: fixed;
-	bottom: 0px;
-	left:0;
 	transition:text-indent 0.5s;
 	-webkit-transition:text-indent 0.5s;
 	background-color: rgba(240,240,240,0.7);
 	width: 300px;
 }
-.add:hover{text-indent:40px;}
+.add:hover,.addChild:hover{text-indent:40px;}
+.add{
+	position: fixed;
+	bottom: 0px;
+	left:0;
+}
+.addChild{
+	position: fixed;
+	bottom: 0px;
+	left:302px;
+}
+
 .deleter{
 	display: none;
 	position:absolute;

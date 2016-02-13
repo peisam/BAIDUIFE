@@ -78,14 +78,14 @@ model.prototype.insertNewChild = function(node,childNode)
 			temp[i] = cloneObject(localJSON[node]["children"][i]);
 		}
 		//插入点
-		temp[node+1] = cloneObject(normalBag);
+		temp[childNode+1] = cloneObject(normalChild);
 		//后移动一位
-		for(var j= node+2;j < len+1;j++){
+		for(var j= childNode+2;j < len+1;j++){
 			temp[j] = cloneObject(localJSON[node]["children"][j-1]);
 		}
 	}
 	//返回给localJSON
-	localJSON[node]["children"] = cloneObject(temp);
+	localJSON[node]["children"] = temp;
 }
 
 //JSON更改-任务包-标题
@@ -125,6 +125,9 @@ model.prototype.removeBag = function(node)
 {
 	var len = this.len();
 	var temp = {};
+	//只剩一个node时返回false
+	if(len===1)
+		return false;
 	if(node >= len)
 		return false
 	else if(node === len-1)
@@ -156,6 +159,9 @@ model.prototype.removeChild = function(node,childNode)
 {
 	var len = this.childLen(node);
 	var temp = {};
+	//只剩一个node时返回false
+	if(len===1)
+		return false;
 	if(childNode >= len)
 		return false;
 	else if(childNode === len-1)
@@ -163,7 +169,7 @@ model.prototype.removeChild = function(node,childNode)
 		//直接remove
 		for(var i=0;i < len-1;i++)
 		{
-			temp[i] = cloneObject(localJSON[i])
+			temp[i] = cloneObject(localJSON[node]["children"][i])
 		}
 	}
 	else
@@ -172,23 +178,26 @@ model.prototype.removeChild = function(node,childNode)
 		{
 			temp[i] = cloneObject(localJSON[node]["children"][i]);
 		}
-		//剔除点i=node
+		//剔除点i=childnode
 		//向前移动一位
-		for(var j= node;j < len-1;j++){
+		for(var j= childNode;j < len-1;j++){
 			temp[j] = cloneObject(localJSON[node]["children"][j+1]);
 		}
 	}
 	//返回给localJSON
-	localJSON[node]["children"] = cloneObject(temp);
+	localJSON[node]["children"] = temp;
 }
 
 //JSON保存至localStorage
 model.prototype.save = function()
 {
+	localStorage.clear();//先清空
 	for(var i in localJSON)
 	{
 		localStorage[i] = JSON.stringify(localJSON[i])
 	}
+	window.save.innerHTML="SAVED";
+	console.log("SAVED");
 }
 
 //JSON读取localStorage

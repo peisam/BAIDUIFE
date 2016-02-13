@@ -12,6 +12,9 @@ var childTopic = r.getElementsByTagName("input")[0];
 var timming = r.getElementsByTagName("input")[1];
 var desc = r.getElementsByTagName("textarea")[0];
 var task_Len = l.getElementsByClassName("len")[0];
+var save = doc.getElementsByClassName("save")[0];
+var plusBag = doc.getElementById("plusBag");
+var plusChild = doc.getElementById("plusChild");
 //mvc
 //
 //v
@@ -21,9 +24,12 @@ var task_Len = l.getElementsByClassName("len")[0];
 view.prototype.copyBagDiv = function()
 {
 	var len = mo.len();
+	var birth =	list.getElementsByClassName("task-pa")[0];
 	for(var i=0;i<len-1;i++)
 	{
-		var node = bag.cloneNode(true);
+		var node = birth.cloneNode(true);
+		node.getElementsByClassName("task")[0].value="";
+		node.getElementsByClassName("deleter")[0].style.display="none";
 		list.appendChild(node)
 	}
 }
@@ -32,9 +38,12 @@ view.prototype.copyBagDiv = function()
 view.prototype.copyChildDiv = function(No)
 {
 	var len = mo.childLen(No);
+	var birth =	children.getElementsByClassName("task-pa")[0];
 	for(var i=0;i<len-1;i++)
 	{
-		var node = child.cloneNode(true);
+		var node = birth.cloneNode(true);
+		node.getElementsByClassName("task")[0].value="";
+		node.getElementsByClassName("deleter")[0].style.display="none";
 		children.appendChild(node)
 	}
 }
@@ -83,6 +92,18 @@ view.prototype.viewBagX = function(node)
 	}
 }
 
+
+//view隐藏-任务包-删除按钮
+view.prototype.hideBagX = function()
+{
+	var x = list.getElementsByTagName("a");
+	for(var i in localJSON)
+	{
+		x[i].style.display="none";
+	}
+}
+
+
 //view显示-孩子-删除按钮
 view.prototype.viewChildX = function(node,childnum)
 {
@@ -95,6 +116,29 @@ view.prototype.viewChildX = function(node,childnum)
 	}
 }
 
+//view隐藏-孩子-删除按钮
+view.prototype.hideChildX = function(node)
+{
+	var x = children.getElementsByTagName("a");
+	for(var i in localJSON[node]["children"])
+	{
+		x[i].style.display="none";
+	}
+}
+
+//view清空-任务包
+view.prototype.clearBag = function(No)
+{
+	var input =	list.getElementsByClassName("task-pa");
+	var birth =	list.getElementsByClassName("task")[0];
+	var len = input.length;
+	birth.value = "";
+	if(len>=2)
+	{
+		for(var i=len-1;i>=1;i--)
+			list.removeChild(input[i])
+	}
+}
 
 //view清空-孩子
 view.prototype.clearChild = function(No)
@@ -141,6 +185,46 @@ view.prototype.clearCentreRight = function(f)
 	this.clearChild(f);
 	this.clearContent();
 	this.childflag = undefined;
+}
+
+//save->TO SAVE
+view.prototype.changeSave = function()
+{
+	save.innerHTML = "TO SAVE";
+}
+
+//重加载(于删除添加等操作后执行)
+//重加载-任务包
+view.prototype.refreshBag = function()
+{
+	//重加载
+	v.clearCentreRight();
+	v.clearBag();
+	v.copyBagDiv();
+	v.printBag();
+	v.focusFlag();
+	con.dg();
+	con.judgeLength();
+}
+//重加载-孩子
+view.prototype.refreshChild = function()
+{
+	//重加载
+	v.clearCentreRight();
+	v.showCentre(con.bagFlag);
+	v.focusFlag();
+	con.dg();
+	con.judgeLength();
+}
+
+view.prototype.focusFlag = function()
+{
+	var inputLeft = l.getElementsByClassName("task");
+	var inputCentre = c.getElementsByClassName("task");
+	if(con.bagFlag!==undefined&&con.childFlag===undefined)
+		inputLeft[con.bagFlag].focus();
+	if(con.bagFlag!==undefined&&con.childFlag!==undefined)
+		inputCentre[con.childFlag].focus();
 }
 
 //oo
