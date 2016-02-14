@@ -43,8 +43,8 @@ controller.prototype.childToJSON = function(node)
 //传递desc timming到JSON
 controller.prototype.contentToJSON = function(node,childnode)
 {
-	mo.editChildTimming(node,childnode,timming.value)
-	mo.editChildDesc(node,childnode,desc.value)
+	mo.editChildTimming(node,childnode,this.regTimming(timming.value));//加入Timming正则判断
+	mo.editChildDesc(node,childnode,desc.value);
 }
 
 //所有的add delete等涉及数组重排操作的均触发保存后重新渲染
@@ -210,6 +210,14 @@ controller.prototype.minusChild = function()
 	this.childFlag=undefined;
 	//重加载
 	v.refreshChild();
+}
+
+controller.prototype.regTimming = function(string)
+{
+	var reg=/^[2][0][0-9][0-9][-/.][0-1][0-9][-/.][0-3][0-9]$/;
+	if(reg.test(string)===false)
+		string = "YY-MM-DD";
+	return string
 }
 
 //oo
