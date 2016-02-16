@@ -451,6 +451,3 @@ function insertAfter(newEl, targetEl)
 } 
 
 
-
-
-
