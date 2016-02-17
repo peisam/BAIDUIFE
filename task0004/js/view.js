@@ -16,6 +16,9 @@ var save = doc.getElementsByClassName("save")[0];
 var plusBag = doc.getElementById("plusBag");
 var plusChild = doc.getElementById("plusChild");
 var modal = doc.getElementsByClassName("modal")[0];
+var a=undefined;
+var b=undefined;
+var cartoonFlag = "A";
 //mvc
 //
 //v
@@ -26,11 +29,11 @@ view.prototype.copyBagDiv = function()
 {
 	var len = mo.len();
 	var birth =	list.getElementsByClassName("task-pa")[0];
+	birth.getElementsByClassName("slide")[0].setAttribute("class","slide");
 	for(var i=0;i<len-1;i++)
 	{
 		var node = birth.cloneNode(true);
 		node.getElementsByClassName("task")[0].value="";
-		node.getElementsByClassName("deleter")[0].style.display="none";
 		list.appendChild(node)
 	}
 }
@@ -40,11 +43,12 @@ view.prototype.copyChildDiv = function(No)
 {
 	var len = mo.childLen(No);
 	var birth =	children.getElementsByClassName("task-pa")[0];
+	birth.getElementsByClassName("slide")[0].setAttribute("class","slide");
+
 	for(var i=0;i<len-1;i++)
 	{
 		var node = birth.cloneNode(true);
 		node.getElementsByClassName("task")[0].value="";
-		node.getElementsByClassName("deleter")[0].style.display="none";
 		children.appendChild(node)
 	}
 }
@@ -184,6 +188,7 @@ view.prototype.refreshBag = function()
 	v.copyBagDiv();
 	v.printBag();
 	v.focusFlag();
+	con.touchBackBag();
 	con.dg();
 	con.judgeLength();
 }
@@ -232,44 +237,153 @@ view.prototype.viewR = function()
 }
 
 //单页
-view.prototype.spaLeft = function()
-{
-	modal.setAttribute("class","modal app-rightSide");
-	setTimeout("modal.setAttribute('class','modal app-show')",100);
+view.prototype.A2B = function(){
+	if(a===undefined)
+		window.a = doc.createElement("div");
+	a.setAttribute("class","modal app-rightSide");
+	a.style.backgroundColor = "rgb(190,190,190)";
+	doc.body.appendChild(a);
+	setTimeout("a.setAttribute('class','modal app-show')",100);
+	setTimeout("v.A2BexColor()",600);
+
 }
-view.prototype.spaAnti = function()
-{
-	modal.setAttribute("class","modal app-antiSide");
-	setTimeout("modal.setAttribute('class','modal app-show')",100);
+view.prototype.A2BexColor = function(){
+	window.a.remove();
+	a.setAttribute("class","corner");
+	a.style.width="";
+	a.style.backgroundColor="rgb(210,210,210)";
+	doc.body.style.backgroundColor = "rgb(190,190,190)"
+	doc.body.appendChild(a);
+	a.addEventListener("touchstart",function(event){
+		if(event.targetTouches.length===1){
+			var touch = event.targetTouches[0];
+			this.o = touch.clientX;
+			console.log(" a.o="+this.o);
+		}
+	});
+	a.addEventListener("touchmove",function(event){
+		if(event.targetTouches.length===1){
+			var touch = event.targetTouches[0];
+			this.x = touch.clientX;
+			if(this.x-this.o<100){
+				window.a.style.width = this.x+"px";
+			}
+			else if(this.x-this.o>100){
+				window.a.style.width = "100%";
+				setTimeout("v.B2A()",500);
+			}
+		}
+	});
+	a.addEventListener("touchend",function(event){
+		if(a.style.width !== "100%")
+			a.style.width = "15px";
+	});
+	window.cartoonFlag = "B";
 }
-view.prototype.spaDis = function()
-{
-	modal.setAttribute('class','modal app-disappear');
+
+view.prototype.B2A = function(){
+	a.remove();
+	v.viewL();
+	doc.body.style.backgroundColor = "rgb(210,210,210)";
+	window.cartoonFlag = "A";
+}
+
+
+view.prototype.B2C = function(){
+	a.remove();
+	if(b===undefined)
+		window.b = doc.createElement("div");
+	b.setAttribute("class","modal app-rightSide");
+	b.style.backgroundColor = "rgb(240,240,240)";
+	b.style.width="";
+	doc.body.appendChild(b);
+	setTimeout("b.setAttribute('class','modal app-show')",300);
+	setTimeout("v.B2CexColor()",800);
+}
+view.prototype.B2CexColor = function(){
+	window.b.remove();
+	b.setAttribute("class","corner");
+	b.style.backgroundColor="rgb(190,190,190)";
+	doc.body.style.backgroundColor = "rgb(240,240,240)"
+	doc.body.appendChild(b);
+	b.addEventListener("touchstart",function(event){
+		if(event.targetTouches.length===1){
+			var touch = event.targetTouches[0];
+			this.o = touch.clientX;
+			console.log(" b.o="+this.o);
+		}
+	});
+	b.addEventListener("touchmove",function(event){
+		if(event.targetTouches.length===1){
+			var touch = event.targetTouches[0];
+			this.x = touch.clientX;
+			if(this.x-this.o<100){
+				window.b.style.width = this.x+"px";
+			}
+			else if(this.x-this.o>100){
+				window.b.style.width = "100%";
+				setTimeout("v.C2B()",500);
+			}
+		}
+	});
+	b.addEventListener("touchend",function(event){
+		if(b.style.width !== "100%")
+			b.style.width = "15px";
+	});
+	window.cartoonFlag = "C";
+}
+
+view.prototype.C2B = function(){
+	b.remove();
+	v.viewC();
+	doc.body.style.backgroundColor = "rgb(190,190,190)";
+	//这部分回到a
+	a.setAttribute("class","corner");
+	a.style.width="";
+	a.style.backgroundColor="rgb(210,210,210)";
+	doc.body.style.backgroundColor = "rgb(190,190,190)"
+	doc.body.appendChild(a);
+	//不再邦事件
+	window.cartoonFlag = "B";
 }
 //组合
 //向左动效+返回任务包闭包
 view.prototype.bagCartoon = function(e)
 {
-	this.spaLeft();
+	v.A2B();
 	setTimeout("con.bagClosure("+e+")",500);//返回给点击的事件代理闭包
-	setTimeout("v.spaDis()",600);//消逝
 }
 
 //向左动效+返回孩子闭包
 view.prototype.childCartoon = function(e)
 {
-	this.spaLeft();
-	setTimeout("con.childClosure("+e+")",500);//返回给点击的事件代理闭包
-	setTimeout("v.spaDis()",600);//消逝
+	v.B2C();
+	setTimeout("con.childClosure("+e+")",800);//返回给点击的事件代理闭包
 }
 
 //向右动效+回到主页
 view.prototype.menuCartoon = function(e)
 {
-	this.spaAnti();
-	setTimeout("v.viewL()",500);//会主页
-	setTimeout("v.spaDis()",600);//消逝
+	if(window.cartoonFlag==="A")
+		window.location.href="TODO-APP.html";
+	else if(window.cartoonFlag==="B"){
+		window.a.style.width = "100%";
+		setTimeout("v.B2A()",500);
+	}
+	else if(window.cartoonFlag==="C"){
+		window.b.style.width = "100%";
+		setTimeout("v.C2B()",500);
+		setTimeout("window.a.style.width = '100%';",520);
+		setTimeout("v.B2A()",900);
+	}
+
 }
+
+
+view.prototype.appView = function(){
+	console.log("app");
+}
+
 //oo
 var v = new view();
 

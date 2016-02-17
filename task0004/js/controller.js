@@ -147,12 +147,84 @@ controller.prototype.dg = function()
 		xRight[l].onclick = function(){con.minusChild()};
 	}
 
-
+	//代理Bag touch
 	for(var m=0;m<inputLeft.length;m++)
 	{
-		//
+		!function(m){
+			inputLeft[m].addEventListener("touchstart",function(event){
+				if(event.targetTouches.length===1){
+					var touch = event.targetTouches[0];
+					this.o = touch.clientX;
+					con.bagFlag = m;
+					console.log("touch="+m+" this.o="+this.o);
+					con.touchBackBag();
+				}
+			})
+
+			inputLeft[m].addEventListener("touchmove",function(event){
+				if(event.targetTouches.length===1){
+					var touch = event.targetTouches[0];
+					event.preventDefault();
+					this.x = touch.clientX;
+					console.log("touch="+m+" this.x="+this.x);
+					if((this.o-this.x) > 50){
+						con.touchMoveBag();
+					}
+
+				}
+			})
+
+			inputLeft[m].addEventListener("touchend",function(){
+				if(con.touchFlag===1){
+					return false;
+				}
+				else if(con.touchFlag===undefined){
+					v.bagCartoon(m);
+					console.log("click");//就当作click
+				}
+			})
+		}(m);
 	}
 
+
+	//代理Child touch
+	for(var n=0;n<inputCentre.length;n++)
+	{
+		!function(n){
+			inputCentre[n].addEventListener("touchstart",function(event){
+				if(event.targetTouches.length===1){
+					var touch = event.targetTouches[0];
+					this.o = touch.clientX;
+					con.childFlag = n;
+					console.log("touch="+n+" this.o="+this.o);
+					con.touchBackChild();
+				}
+			})
+
+			inputCentre[n].addEventListener("touchmove",function(event){
+				if(event.targetTouches.length===1){
+					var touch = event.targetTouches[0];
+					event.preventDefault();
+					this.x = touch.clientX;
+					console.log("touch="+n+" this.x="+this.x);
+					if((this.o-this.x) > 50){
+						con.touchMoveChild();
+					}
+
+				}
+			})
+
+			inputCentre[n].addEventListener("touchend",function(){
+				if(con.touchFlag===1){
+					return false;
+				}
+				else if(con.touchFlag===undefined){
+					v.childCartoon(n);
+					console.log("click");//就当作click
+				}
+			})
+		}(n);
+	}
 }
 
 //bag闭包组
@@ -265,22 +337,20 @@ controller.prototype.regTimming = function(string)
 
 controller.prototype.touchMoveBag = function()
 {
-	if(this.touchFlag ===1)
-		return false;
 	var num = this.bagFlag;
 	var slide = doc.getElementsByClassName("slide")[num];
-	console.log(slide);
 	slide.setAttribute("class","slide w100");
 	this.touchFlag = 1;
 }
 
 controller.prototype.touchBackBag = function()
 {
-	var num = this.bagFlag;
-	if(this.touchFlag ===undefined)
-		return false;
-	var slide = list.getElementsByClassName("slide")[num];
-	slide.setAttribute("class","slide");
+	var slide = list.getElementsByClassName("slide");
+	for(var i=0;i<slide.length;i++){
+		if(i===this.bagFlag)
+			continue;
+		slide[i ].setAttribute("class","slide");
+	}
 	this.touchFlag = undefined;
 }
 
@@ -296,11 +366,12 @@ controller.prototype.touchMoveChild = function()
 
 controller.prototype.touchBackChild = function()
 {
-	var num = this.childFlag;
-	if(this.touchFlag ===undefined)
-		return false;
-	var slide = children.getElementsByClassName("slide")[num];
-	slide.setAttribute("class","slide");
+	var slide = children.getElementsByClassName("slide");
+	for(var i=0;i<slide.length;i++){
+		if(i===this.childFlag)
+			continue;
+		slide[i].setAttribute("class","slide");
+	}
 	this.touchFlag = undefined;
 }
 
@@ -309,6 +380,8 @@ controller.prototype.editBag = function()
 	if(this.bagFlag===undefined)
 		return false;
 	var target = list.getElementsByTagName("input");
+	var slide = list.getElementsByClassName("slide");
+	slide[this.bagFlag].setAttribute("class","slide");
 	target[this.bagFlag].focus();
 }
 
@@ -319,7 +392,9 @@ controller.prototype.editChild = function()
 	if(this.childFlag===undefined)
 		return false;
 	var target = children.getElementsByTagName("input");
-	target[this.bagFlag].focus();
+	var slide = children.getElementsByClassName("slide");
+	slide[this.childFlag].setAttribute("class","slide");
+	target[this.childFlag].focus();
 }
 
 
@@ -357,6 +432,7 @@ window.onload=function()
 	v.printBag();
 	con.dg();
 	con.judgeLength();
+	v.appView();
 }
 
 doc.onkeyup=function()

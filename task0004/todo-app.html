@@ -18,8 +18,8 @@
 		<div class="task-pa relative">
 			<input class="task" type="text" value="" placeholder="TODO" maxlength="15">
 			<div class="slide" href="javascript:void(0)">
-				<a class="editer left">EDIT</a>
-				<a class="deleter right">DELETE</a>
+				<a class="editer left" onclick="con.editBag()">EDIT</a>
+				<a class="deleter right" onclick="con.minusBag()">DELETE</a>
 			</div>
 		</div>
 	</div>
@@ -32,8 +32,8 @@
 		<div class="task-pa relative">
 			<input class="task" type="text" value="" placeholder="TODO" maxlength="15">
 			<div class="slide" href="javascript:void(0)">
-				<a class="editer left">EDIT</a>
-				<a class="deleter right">DELETE</a>
+				<a class="editer left" onclick="con.editChild()">EDIT</a>
+				<a class="deleter right" onclick="con.minusChild()">DELETE</a>
 			</div>
 		</div>
 	</div>
@@ -52,7 +52,7 @@
 		<textarea class="desc" placeholder="DESCRIBE"></textarea>
 	</div>
 </div>
-<div class="modal app-disappear"></div>
+<!--<div class="modal app-disappear"></div>-->
 <script type="text/javascript" src="js/util.js"></script>
 <script type="text/javascript" src="js/model.js"></script>
 <script type="text/javascript" src="js/view.js"></script>
