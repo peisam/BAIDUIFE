@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	form{margin:0;padding: 0}
+	#input{
+		border:solid 1px gray;
+		height:20px;
+		width:300px;
+	}
+	#suggest{
+		font-size: 20px;
+		line-height: 40px;
+		width:300px;
+		background: gray;
+		color:white;
+	}
+</style>
+</head>
+<body>
+<div>
+	<form><input id="input" onkeyup="sgt.ct()"></form>
+	<div id="suggest">
+		
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	var suggestData = ['Simon','Erik','Kener','Ella','Ellen','AvrilLavigne','Eva'];
+	var input=document.getElementById("input");
+	var suggest=document.getElementById("suggest");
+	var Suggest = function(){
+		this.inMsg="";
+		this.outMsg="";
+		this.arr=[,,,,,,];
+	}
+	Suggest.prototype.ct=function ct(){
+		this.inMsg=input.value;
+		this.sg();
+	}
+	Suggest.prototype.sg=function sg(){
+		this.outMsg="";
+		var count=0;
+		for(var i in suggestData){
+				for(var j in this.inMsg){
+					if(this.inMsg[j]===suggestData[i][j]){
+						this.outMsg=suggestData[i];
+					}
+					else{
+						this.outMsg="";
+						break;
+					}
+				}
+				this.arr[count]=this.outMsg;
+				count++;
+				this.pr();
+		}
+	}
+	Suggest.prototype.pr=function pr(){
+		suggest.innerHTML="";
+		for(var i in this.arr){
+			if(this.arr[i]){
+				var p=document.createElement("p");
+				var text=document.createTextNode(this.arr[i]);
+				p.appendChild(text);
+				p.id=i;
+				p.setAttribute("onclick","sgt.fl("+i+")");
+				suggest.appendChild(p);
+			}
+		}
+	}
+	Suggest.prototype.fl=function fl(num){
+		var flMsg=document.getElementById(num).innerHTML;
+		input.value = flMsg;
+		suggest.innerHTML="";
+	}
+	//oo
+	var sgt = new Suggest();
+</script>
+</html>

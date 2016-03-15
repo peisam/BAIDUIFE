@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>task0002_3</title>
+		<link rel="stylesheet" href="css/ECharts.css"> 
+	</head>
+	<body>
+		<header class="clearfix"></header>
+
+		<div class="carousel">
+			<div class="item show"><img></div>
+			<div class="item"><img></div>
+			<div class="item"><img></div>
+			<div class="item"><img></div>
+			<div class="item"><img></div>
+			<div class="item"><img></div>s
+		</div>
+		<div class="blk">
+			<ol>
+				<li class="white" onclick="sld.column_choice(0)"></li>
+				<li onclick="sld.column_choice(1)"></li>
+				<li onclick="sld.column_choice(2)"></li>
+				<li onclick="sld.column_choice(3)"></li>
+				<li onclick="sld.column_choice(4)"></li>
+				<li onclick="sld.column_choice(5)"></li>
+			</ol>
+		</div>
+		<div class="bar clearfix">
+		</div>
+	</body>
+	<script type="text/javascript">
+		var wrap = document.getElementsByClassName("carousel");
+		var item = wrap[0].getElementsByTagName("div");
+		var img = wrap[0].getElementsByTagName("img");
+		var name = "http://echarts.baidu.com"
+		img[0].src=name+"/doc/asset/img/slide-01.png";
+		img[1].src=name+"/doc/asset/img/slide-02.png";
+		img[2].src=name+"/doc/asset/img/slide-03.png";
+		img[3].src=name+"/doc/asset/img/slide-04.png";
+		img[4].src=name+"/doc/asset/img/slide-05.jpg";
+		img[5].src=name+"/doc/asset/img/bannerX.jpg";
+		var k =1;
+		//oo
+		function Slider(id,name){
+			this.id = id;
+			this.name = name;
+		}
+		Slider.prototype.l_show =  function l_show(num,timing){
+			setTimeout('item['+num+'].className="hide"',timing+0);//初始化
+			setTimeout('item['+num+'].className="item"',timing+50*k);
+			setTimeout('item['+num+'].className="item show"',timing+100*k);
+		}//
+		//oo
+		//在setTimingout里传包含timing的函数会出错
+		Slider.prototype.l_leave =  function l_leave(num,timing){
+			setTimeout('item['+num+'].className="item show"',timing+0);//初始化
+			setTimeout('item['+num+'].className="item left"',timing+100*k);
+			setTimeout('item['+num+'].className="hide"',timing+700*k);
+		}//在setTimingout里传包含timing的函数会出错
+		Slider.prototype.r_show =  function r_show(num,timing){
+			setTimeout('item['+num+'].className="hide"',timing+0);//初始化
+			setTimeout('item['+num+'].className="item left"',timing+50*k);
+			setTimeout('item['+num+'].className="item show"',timing+100*k);
+		}//在setTimingout里传包含timing的函数会出错
+		Slider.prototype.r_leave =  function r_leave(num,timing){
+			setTimeout('item['+num+'].className="item show"',timing+0);//初始化
+			setTimeout('item['+num+'].className="item"',timing+100*k);
+			setTimeout('item['+num+'].className="hide"',timing+700*k);
+		}//在setTimingout里传包含timing的函数会出错
+		var n = 0;
+		var t;
+		Slider.prototype.column_loop =  function column_loop(num){
+			this.column_left(num);
+			num=(num+1)%6;
+			n=num;console.log(n);
+			this.dotchange();
+			t=setTimeout(this.name+'.column_loop('+num+')',1000*k);
+		}
+		Slider.prototype.column_left =  function column_left(num){
+			this.stopCount();
+			this.l_leave(num,0);console.log('leave'+num);
+			num=(num+1)%6;
+			this.l_show(num,0);console.log('show'+num);
+			n=num;
+			this.dotchange();
+		}
+		Slider.prototype.column_right =  function column_right(num){
+			this.stopCount();
+			r_leave(num,0);console.log('leave'+num);
+			num=(num+5)%6;
+			this.r_show(num,0);console.log('show'+num);
+			n=num;
+			this.dotchange();
+		}
+		Slider.prototype.column_choice =  function column_choice(num){
+			this.stopCount();
+			if(num==n||(num!=0&&num!=1&&num!=2&&num!=3&&num!=4&&num!=5))
+				console.log('false');
+			else if(num==((n+3)%6)||num==((n+4)%6)||num==((n+5)%6)){
+				this.r_leave(n,0);console.log('leave'+n);
+				this.r_show(num,0);
+				n=num;console.log('show'+n);
+			}
+			else if(num==((n+2)%6)||num==((n+1)%6)){
+				this.l_leave(n,0);console.log('leave'+n);
+				this.l_show(num,0);
+				n=num;console.log('show'+num);
+			}
+			this.dotchange();
+		}
+		Slider.prototype.stopCount =  function stopCount(){
+			clearTimeout(t);
+			t=null;
+		}
+		var li_arr = document.getElementsByTagName("li");
+		Slider.prototype.dotchange =  function dotchange(){
+			for(var i =0;i<6;i++){
+				if(i==n)
+					li_arr[i].className="white";
+				else
+					li_arr[i].className="";
+			}
+		}
+		var sld = new Slider(0,'sld');
+
+	</script>
+</html>
