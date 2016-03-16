@@ -36,4 +36,4 @@ JavaScript/希望加深oo/了解各种设计模式/学习算法
 JavaScript生态相关都很感兴趣
 ```
   
-父文件夹中有团队logo(拜托萌妹子帮忙设计的哦～)[大图](https://github.com/meloalright/BAIDUIFE/tree/master/PHASE03/80.png)+[小图](https://github.com/meloalright/BAIDUIFE/tree/master/PHASE03/258x249.png)
+父文件夹中有团队logo(拜托萌妹子帮忙设计的哦～)[大图](https://github.com/meloalright/BAIDUIFE/tree/master/PHASE03/80.png)+[小图](https://github.com/meloalright/BAIDUIFE/tree/master/PHASE03/249x249.png)
