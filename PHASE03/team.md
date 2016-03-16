@@ -10,7 +10,6 @@ MELOIFE
 @唐伟豪 redorgreen@sina.cn  
 喜欢篮球/NBA/虎扑jr/知乎党  
 喜欢JavaScript/C++ 最近要被KCF算法虐死  
-有兴趣可以关注H2CO3＝`[https://H2CO3union.com](https://H2CO3union.com)`
 ```
   
 ```javascript
