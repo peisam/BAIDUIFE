@@ -3,12 +3,16 @@
 MELOIFE  
   
 团队介绍  
-`并不知道为什么就是觉得MELO听起来萌萌的MELOIFE很顺口` 
+```javascript  
+  
+并不知道为什么就是觉得MELO听起来萌萌的MELOIFE很顺口  
+  
+```
   
 队员介绍
 ```javascript
 @唐伟豪 redorgreen@sina.cn  
-喜欢篮球/NBA/虎扑jr/知乎党  
+喜欢篮球/NBA/虎扑jr/知乎党/听演唱会/网易云音乐  
 喜欢JavaScript/C++ 最近要被KCF算法虐死  
 ```
   
@@ -27,7 +31,7 @@ JavaScript/希望加深oo/了解各种设计模式/学习算法
 ```javascript
 @宋恺睿 songkairui@hackret.com  
 开源/类Unix/Lambda/oldschoolhacking  
-前端后端\全栈
+前端后端\全栈\树莓派
 ```
   
 ```javascript
