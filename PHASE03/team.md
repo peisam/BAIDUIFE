@@ -1,11 +1,16 @@
-###team.md  
+###team.md   
+  
+MELOIFE  
   
 团队介绍  
+并不知道为什么就是觉得MELO听起来萌萌的MELOIFE很顺口  
+  
+队员介绍
 ```javascript
 @唐伟豪 redorgreen@sina.cn  
 喜欢篮球/NBA/虎扑jr/知乎党  
 喜欢JavaScript/C++ 最近要被KCF算法虐死  
-有兴趣可以关注H2CO3＝[https://H2CO3union.com](https://H2CO3union.com)
+有兴趣可以关注H2CO3＝`[https://H2CO3union.com](https://H2CO3union.com)`
 ```
   
 ```javascript
@@ -23,7 +28,7 @@ JavaScript/希望加深oo/了解各种设计模式/学习算法
 ```javascript
 @宋恺睿 songkairui@hackret.com  
 开源/类Unix/Lambda/oldschoolhacking  
-前端后端
+前端后端\全栈
 ```
   
 ```javascript
@@ -32,4 +37,4 @@ JavaScript/希望加深oo/了解各种设计模式/学习算法
 JavaScript生态相关都很感兴趣
 ```
   
-父文件夹中有团队logo(拜托萌妹子帮忙设计的哦～)大图+小图(80x80)
+父文件夹中有团队logo(拜托萌妹子帮忙设计的哦～)[大图](https://github.com/meloalright/BAIDUIFE/tree/master/PHASE03/80.png)+[小图](https://github.com/meloalright/BAIDUIFE/tree/master/PHASE03/258x249.png)
