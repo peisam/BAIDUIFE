@@ -1,16 +1,35 @@
 /*main.css*/
 body{margin:0;padding: 0}
+body{min-width: 320px}
+body{font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif}
 ul{margin: 0;padding:0}
-header{
-	background: #333333;
+ul{
+	list-style-type: none;
 }
-header div{
+body > header{
 	height: 60px;
 }
+h1{font-size: 2em}
+.gray-header,.gray-footer{
+	background: #333333;
+}
+footer{text-align: center}
+footer{height: 70px;line-height: 70px;font-size: 10px}
+.clearfix:before,
+.clearfix:after{
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.clearfix:after{clear: both}
+.clearfix{zoom:1;}/*IE<8*/
+
 .ellipsis{
 	text-overflow:ellipsis;
 	overflow-x:hidden;
 	overflow-y:hidden;
+	white-space: nowrap;
 }
 #Baidu-logo{
 	float: left;
@@ -27,11 +46,12 @@ header div{
 
 #nav-ul li{
 	display: inline-block;
+	height: 60px;
+	line-height: 60px;
 	width: 80px;
 }
 #nav-ul li a{
 	font-size: 12px;
-	line-height: 60px;
 	text-decoration: none;
 	color: white;
 }
@@ -39,3 +59,86 @@ header div{
 .wrap{
 	background: rgb(222,222,222)
 }
+
+.section{
+	background: white;
+	padding: 20px;
+	margin-left:20px;
+	margin-right:20px;
+	border: solid 1px rgb(203,203,203);
+}
+
+.mt20{margin-top: 20px}
+.mb20{margin-bottom: 20px}
+
+
+figure img{width: 100%;max-width: 300px}
+.figure-stream figure{
+	display: inline-block;
+	padding: 10px;
+	border: solid 1px rgb(206,206,206);
+}
+.figure-stream figure figcaption{
+	text-align: center
+}
+
+.color-gray{
+	color: gray
+}
+.color-white{
+	color: white
+}
+table,tr,th,td{margin: 0}
+table td,table th{padding: 5px}
+table{
+	border-collapse:collapse;
+	width: 100%;
+	border: solid 1px #eeeeee;
+}
+table th{background: #333333;color: white}
+table tr td{
+	border: solid 1px #eeeeee;
+}
+table tfoot td{background: #eeeeee}
+
+blockquote{
+	border-left: solid 3px gray;
+	line-height: 3em;
+	text-indent: 1em;
+}
+
+aside form span{
+	display: block;
+	margin: 10px 0 10px 0
+}
+
+aside span .label-40{
+	text-align:right;
+	display: inline-block;
+	width:39%;
+	margin-right: 1%;
+}
+.inline-block{display: inline-block;}
+.mt0{margin-top: 0}
+.mb0{margin-bottom: 0}
+.relative{position: relative;}
+.absolute-top-0{
+	position: absolute;
+	top:0;
+}
+.width-60{width: 60%}
+.submit{
+	display: block;
+	width:100%;
+	height:60px;
+	height:40px;
+	padding: 10px;
+	font-size: 20px;
+	line-height: 20px;
+	margin:10px;
+	background-color: rgb(51,85,208);
+	border: none;
+	color:white;
+	border-radius: 10px;
+}
+
