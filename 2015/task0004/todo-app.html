@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>TODO-APP</title>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+<header>
+	<a href="javscript:void(0)" onclick="v.menuCartoon()">APP</a>
+	<a href="javscript:void(0)" onclick="mo.save()" class="save">SAVED</a>
+</header>
+<div class="l left relative">
+	<div class="topic"><p class='len'>所有任务</div>
+	<div class="topic"><p>分类列表</div>
+	<div class="list">
+		<div class="task-pa relative">
+			<input class="task" type="text" value="" placeholder="TODO" maxlength="15">
+			<div class="slide" href="javascript:void(0)">
+				<a class="editer left" onclick="con.editBag()">EDIT</a>
+				<a class="deleter right" onclick="con.minusBag()">DELETE</a>
+			</div>
+		</div>
+	</div>
+	<div class="add">
+		<p><a id="plusBag" onclick="con.plusBag()" href="javascript:void(0)">+ 添加</a>
+	</div>
+</div>
+<div class="c left" style="display:none">
+	<div class="children">
+		<div class="task-pa relative">
+			<input class="task" type="text" value="" placeholder="TODO" maxlength="15">
+			<div class="slide" href="javascript:void(0)">
+				<a class="editer left" onclick="con.editChild()">EDIT</a>
+				<a class="deleter right" onclick="con.minusChild()">DELETE</a>
+			</div>
+		</div>
+	</div>
+	<div class="addChild">
+		<p><a id="plusChild" onclick="con.plusChild()" href="javascript:void(0)">+ 添加</a>
+	</div>
+</div>
+<div class="r" style="display:none">
+	<div class="m-header">
+		<input class="task" placeholder="TOPIC" maxlength="15" style="width:100%" disabled="disabled">
+	</div>
+	<div class="m-header">
+		<input class="task" placeholder="TIMMING" maxlength="15" style="width:100%">
+	</div>
+	<div class="m-desc">
+		<textarea class="desc" placeholder="DESCRIBE"></textarea>
+	</div>
+</div>
+<!--<div class="modal app-disappear"></div>-->
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/model.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+/*main.css*/
+body{margin:0;padding: 0}
+ul{margin: 0;padding:0}
+header{
+	background: #333333;
+}
+header div{
+	height: 60px;
+}
+.ellipsis{
+	text-overflow:ellipsis;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+#Baidu-logo{
+	float: left;
+}
+#Baidu-logo img{
+	height: 35px;
+	margin: 10px 0px 15px 40px;
+}
+#nav-ul{
+	list-style-type:disc;
+	text-align: right;
+	margin-right: 20px;
+}
+
+#nav-ul li{
+	display: inline-block;
+	width: 80px;
+}
+#nav-ul li a{
+	font-size: 12px;
+	line-height: 60px;
+	text-decoration: none;
+	color: white;
+}
+
+.wrap{
+	background: rgb(222,222,222)
+}

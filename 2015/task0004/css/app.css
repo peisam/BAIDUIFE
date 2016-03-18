@@ -1,0 +1,194 @@
+body{margin:0;padding: 0;background-color: rgb(210,210,210)}
+body,input{font: 14px 'microsoft yahei',"微软雅黑","Lucida Grande", Helvetica, Arial, sans-serif;}
+header{
+	height:70px;/*IE5*/
+	height:30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	/*background-color: rgb(225,225,225);*/
+	font-size: 30px;
+	line-height: 30px;
+	text-indent: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid rgb(205,205,205)
+}
+/*webapp*/
+header{position: fixed;top:0;left:0;width: 100%;z-index: 9999}
+.l,.c,.r{margin-top: 71px}
+/*webapp*/
+a{text-decoration: none;color:black;}
+input{border-width: 0}
+input:focus{outline: none}
+textarea{overflow-y: visible}
+textarea{height: 100%}
+textarea:focus,textarea:hover{outline: none}
+.left{float: left}
+.right{float:right;}
+.relative{position: relative}
+.left{float:left;}
+.right{float:right;}
+/*.l{width: 300px;border-right: 2px solid rgb(205,205,205)}
+.c{width:300px;border-right: 2px solid rgb(205,205,205)}
+.r{
+	margin-left: 604px;
+	height: 100%;
+}*/
+.c,.l,.r{width: 100%}
+.l,.c,.r{min-height: 630px}
+.m-header{
+	border-bottom:2px solid rgb(205,205,205);
+}
+.m-desc{
+	font-size: 20px;
+	line-height: 20px;
+	text-indent: 40px;
+	padding-top: 10px;
+	height: 600px;
+}
+.m-desc{/*background-color: rgb(240,240,240)*/}
+.m-desc:focus,.m-desc:hover{
+	background-color: white;
+}
+.graycolor{background-color: rgb(240,240,240)}
+.papercolor{background-color: rgb(240,240,240)}
+.whitecolor{background-color: white}
+.l .topic{
+	font-size: 18px;
+	margin-left: 20px;
+	line-height: 30px;
+}
+.l .list{margin-left: 0}
+.task-pa,.add,.topic{text-align: left}
+.task{
+	background-color: rgba(240,240,240,0);
+	font-size: 18px;
+	width: 100%;
+	text-indent: 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	transition:text-indent 0.5s;
+	-webkit-transition:text-indent 0.5s;
+}
+.task:hover,.task:focus{
+	text-indent: 60px;
+}
+.save{
+	margin-left: 40px;
+	color: black;
+	border-left: solid 2px black;
+	padding: 0 10px;
+	transition:border-left 0.5s;
+	-webkit-transition:border-left 0.5s; 
+}
+.save:hover{
+	border-left: solid 10px rgba(0,0,0,0);
+}
+
+.add,.addChild{
+	text-indent: 20px;
+	font-size: 18px;
+	transition:text-indent 0.5s;
+	-webkit-transition:text-indent 0.5s;
+	background-color: rgba(240,240,240,0.1);
+	z-index: 999;
+	/*width: 300px;*/
+}
+.add ,.addChild{width: 100%}
+.add:hover,.addChild:hover{text-indent:40px;}
+.add{
+	position: fixed;
+	bottom: 0px;
+	left:0;
+}
+.addChild{
+	position: fixed;
+	bottom: 0px;
+	/*left:302px;*/
+}
+
+.slide{
+	display: block;
+	position:absolute;
+	right:0px;
+	top:0px;
+	width:0px;
+	height: 100%;
+	text-align: center;
+	z-index: 2;
+	text-overflow:hidden;
+	overflow-x:hidden; 
+	transition:width 0.5s;
+	-webkit-transition:0.5s;
+}
+.w100{width: 100%}
+.editer{
+	display: block;
+	font-size: 30px;
+	line-height: 44px;
+	width: 50%;
+	color: white;
+	background-color:#CCCCCC;
+}
+.deleter{
+	display: block;
+	font-size: 30px;
+	line-height: 44px;
+	width: 50%;
+	color: white;
+	background-color:red;
+}
+.deleter:hover{
+}
+
+
+
+
+
+.desc{
+	background-color: rgba(0,0,0,0);
+	text-indent: 0px;
+	font-size: 18px;
+	line-height: 27px;
+	width: 80%;
+	border: 0;
+}
+.desc:focus,.desc:hover{
+}
+
+.modal{
+	display: block;
+	position: fixed;
+	z-index: 2;
+	width:100%;
+	height: 100%;
+	top:0;
+	transition:left 0.4s;
+	-webkit-transition:left 0.4s; 
+}
+.app-rightSide{
+	left: 100%
+}
+
+.app-antiSide{
+	left:-100%;
+}
+
+.app-show{
+	left:15px;
+}
+
+.app-disappear{
+	display: none;
+}
+
+.corner{
+	display: block;
+	position: fixed;
+	z-index: 2;
+	height: 100%;
+	width:15px;
+	top:0;
+	transition:width 0.4s;
+	-webkit-transition:width 0.4s; 
+	left:0;
+}
