@@ -1,0 +1,100 @@
+/* reset */
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,\5b8b\4f53;color:#333;outline:0;}
+body{background:#fff;}
+a,a:hover{color:#333;}
+
+.nav{
+	height: 56px;
+}
+.nav .icon{
+	height: 56px;
+	margin-left: 60px;
+	line-height: 56px;
+	font-size: 18px;
+	background: url("images/icon1.png") 0 12px  no-repeat;
+}
+
+.nav .icon h2{
+	margin-left: 45px;
+}
+.nav ul{
+	margin-right: 60px;
+}
+.nav li{
+	float: right;
+	display: inline-block;
+	height: 56px;
+	line-height: 56px;
+	padding: 0 20px;
+	color: #81838a;
+	font-size: 15px;
+}
+.nav li:hover{
+	color: #e74f4d;
+}
+.nav li:first-child{
+	text-indent: 10px;
+	color: #e74f4d;
+	background: url("images/icon2.png") 8px 18px  no-repeat;
+}
+.nav li:last-child{
+	color: #e74f4d;
+	border-bottom: 4px solid #e74f4d;
+	box-shadow 
+}
+.ctn1{
+	height: 692px;
+	position: relative;
+
+}
+.ctn1 img{
+	width: 100%;
+	height: 100%;
+}
+.ctn1 .text{
+	position: absolute;
+    top: 180px;
+    left: 141px;
+	bottom: 50px;
+	color: #fff;
+}
+.ctn1 .text h5{
+    height: 84px;
+    font-size: 61px;
+    font-weight: normal;
+}
+.ctn1 .text p{
+	height: 26px;
+    line-height: 26px;
+    font-size: 20px;
+    padding-left: 10px;
+
+}
+.ctn1 button{
+	margin-top: 80px;
+	margin-left: 10px;
+	border: none;
+	background: #e74f4d;
+	width: 330px;
+	height: 63px;
+	line-height: 63px;
+	font-size: 30px;
+	color: #fff;
+}
