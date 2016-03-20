@@ -19,7 +19,10 @@ del,ins,u,s,a,a:hover{text-decoration:none;}
 body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,\5b8b\4f53;color:#333;outline:0;}
 body{background:#fff;}
 a,a:hover{color:#333;}
-
+body{
+	min-width: 1209px;
+	font-family: SimSun;
+}
 .nav{
 	height: 56px;
 }
@@ -453,12 +456,12 @@ a,a:hover{color:#333;}
 	color: #fff;
 }
 .ctn8{
-	height: 750px;
+	height: 670px;
 }
 .triangle-right { 
 	position: absolute!important;
 	top: 50%;
-	right: 32%;  
+	left: 66%;  
 	width: 0!important;
 	height: 0!important;   
 	border-top: 16px solid transparent;   
@@ -466,4 +469,134 @@ a,a:hover{color:#333;}
 	border-left: 30px solid #fff;
 	transform: translateY(-50%);
 	z-index: 1000
+}
+.ctn8 .join{
+	height: 150px;
+	text-align: center;
+}
+.ctn8 .join h3{
+	margin-top: 112px;
+	font-size: 22px;
+}
+.ctn8 .join i{
+	display: block;
+    margin-left: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background-color: #e74f4d;
+}
+.ctn8 .join p{
+	color: #b1b0b0;
+	line-height: 20px;
+}
+.ctn8 .rulesForm{
+	padding: 70px 11% 150px ;
+}
+.ctn8 .rules{
+	float: left;
+	width: 31%
+}
+.ctn8 .rules div{
+	margin-bottom: 55px;
+}
+.ctn8 .rules div h4{
+	margin-bottom: 15px;
+	color: #595757;
+}
+.ctn8 .rules div p{
+	color: #b1b0b0;
+	line-height: 20px;
+}
+.ctn8 .rules div i{
+	float: right;
+	display: inline-block;
+	width: 50px;
+	margin-top: 5px; 
+	text-align: right;
+	background: url("images/more.jpg") 2px 5px no-repeat;
+}
+.ctn8 .forms{
+	width: 65%;
+	float: right;
+}
+.ctn8 .forms input{
+	height: 40px;
+	width: 47%;
+	margin: 0 2% 2% 0;
+	line-height: 40px;
+	background: #ededee;
+	border: none;
+	text-indent: 15px
+}
+.ctn8 .forms textarea{
+	width: 97%;
+	margin-bottom: 2%;
+	line-height: 30px;
+	text-indent: 10px;
+	background: #ededee;
+	border: none;
+}
+#submit{
+	display: inline-block;
+	width: 97%;
+	background: #ededee;
+	border: none;
+}
+.ctn9{
+	height: 410px;
+	color: #fff;
+}
+.ctn9 .contact{
+	height: 360px;
+	text-align: center;	
+	background: #32353e
+}
+.ctn9 .contact h3{
+	font-size: 22px;
+	padding: 90px 0 5px 0; 
+
+}
+.ctn9 .contact p{
+	line-height: 20px
+
+}
+.ctn9 .contact input{
+	display: inline-block;
+	height: 36px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	line-height: 36px;
+	border: none;
+}
+#email{
+	width: 430px;
+	text-indent: 15px;
+}
+#emailSubmit{
+	width: 80px;
+	background: #686166;
+	height: 37px;
+	color: #fff
+}
+.ctn9  .footer{
+	height: 50px;
+	background: #2f3038
+}
+.ctn9 .contact a{
+	margin: 20px 15px 0 25px;
+}
+.ctn9 .footer span{
+	line-height: 50px
+}
+.ctn9 .footer span:first-child{
+	display: inline-block;
+	margin-left: 100px;
+}
+.ctn9 .footer a{
+	float: right;
+	margin-right: 30px;
+	color: #fff
 }
